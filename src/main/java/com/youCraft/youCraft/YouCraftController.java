@@ -18,7 +18,7 @@ public class YouCraftController {
 
     @Autowired
     UserService userService;
-
+    //test
     @RequestMapping(path = "/posts", method = RequestMethod.GET)
     public Map<String, Object> getGames() {
         List<Post> posts = postService.findAll();

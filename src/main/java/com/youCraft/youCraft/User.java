@@ -1,9 +1,8 @@
 package com.youCraft.youCraft;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 public class User {
@@ -14,6 +13,9 @@ public class User {
     private String lastName;
     private String userName;
     private String password;
+
+    @OneToMany(mappedBy="user", fetch=FetchType.EAGER)
+    private Set<Post> posts = new HashSet<>();
 
     public User(){}
 
@@ -31,6 +33,7 @@ public class User {
     public void setUserId(long userId) {
         this.userId = userId;
     }
+
     public String getFirstName() {
         return firstName;
     }
